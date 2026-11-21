@@ -6,6 +6,8 @@ Train a small MLP that predicts **post-P&R WNS (timing), area, and power**
 from design features (`log2 gates`, logic depth, fanout, wireload, target
 clock period) — a self-contained "ML in the EDA loop" demo, pure PyTorch on M1.
 
+![Architecture](docs/diagrams/architecture.svg)
+
 ## What it does
 
 - Synthesizes a design→QoR dataset where the response surface is anchored to
@@ -50,6 +52,12 @@ make test
 Parse Yosys `stat` (gates/depth/fanout) + OpenROAD timing/area reports for a
 sweep of designs (e.g. the blocks in [sta-timing-closure-engine](https://github.com/Ana2601/sta-timing-closure-engine)) and retrain with `gen_data.py`
 swapped for the real parser — giving measured, citable QoR-prediction numbers.
+
+## Test run
+
+Output of the CI command (`python3 test_ml_eda.py`), captured from a local run:
+
+![Test run](docs/screenshots/test_run.svg)
 
 ## Setup
 
